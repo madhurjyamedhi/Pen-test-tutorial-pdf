@@ -1,0 +1,303 @@
+Networking I
+---------------------
+
+Network
+=======
+	Connection of two or more IT Electronic Devices, with a sole purpose of Information Interchange.
+
+Topology
+========
+	How my devices are connected to each other in the network. Physical layout of the network.
+
+1. Star Topology
+================
+	When all of my end devices are connected to a central connecting device.
+	If my central device is down, then communication is not possible.
+2. Ring Topology
+================
+	When all of my end devices are connected in a closed circular chain.
+		There are two ways of communication in Ring Topology
+		1. Unidirectional
+			Either clock or anti clock
+		2. Bidirectional
+			Data can go through any direction
+3. Mesh Topology
+================
+	When all of my devices are connected to every device in the network.
+4. Bus Topology
+===============
+	When all the end devices are connected to a central communicating line, which is known as Back Bone.
+5. Hybrid Topology
+==================
+	When two or more type of topologies are connected in the network.
+
+Protocols
+=========
+	Set of rules and regulations, which are required by every device to follow, to communicate in the network.
+
+1. IP --> Internet Protocol
+2. TCP --> Transmission Control Protocol
+3. UDP --> User Datagram Protocol
+4. FTP --> File Transfer Protocol
+5. HTTP --> Hyper Text Transfer Protocol
+6. SMTP --> Simple Mail Transfer Protocol
+7. VoIP --> Voice Over Internet Protocol
+8. DHCP --> Dynamic Host Configuration Protocol
+
+IP Address
+==========
+	Internet Protocol Address
+	-------------------------
+	It is a virtual address which is provided to a device, which is connected to a network or internet, just for communicating. It is unique in a network.
+
+Version of IP Address
+=====================
+	1. IPv4
+	2. IPv6
+
+1. IPv4 --> Internet Protocol Version 4
+----------------------------------------
+	It is a 32 bit long address, divided into 4 octets and separated by a period.
+
+	192.168.0.28 ---> IPv4
+	4 octets --> 192|168|0|28
+		Because I can represent a number using 8 bits(0 and 1)
+	Periods --> dot(.)
+
+
+192 = 128+64 = 11000000
+168 = 128+32+8 = 10101000
+0  = 00000000
+28 = 16 + 8 + 4 = 00011100
+
+
+128		64		32		16		8		4		2		1
+=========================================================	
+1		1		0		0		0		0		0		0	192
+1		0		1		0		1		0		0		0	168
+0		0		0		0		0		0		0		0	0
+0		0		0		1		1		1		0		0	28
+
+
+192.168.0.28 = 11000000.10101000.00000000.00011100
+It is composed of decimal numbers only. --> 0-9
+Total Number Of IP Address --> 2^32 IP Addresses
+	0.0.0.0 - 255.255.255.255
+
+Classes of IPv4 Addresses
+=========================
+1. Class A --> 0.0.0.0 - 127.255.255.255
+2. Class B --> 128.0.0.0 - 191.255.255.255
+3. Class C --> 192.0.0.0 - 223.255.255.255
+4. Class D --> 224.0.0.0 - 239.255.255.255
+5. Class E --> 240.0.0.0 - 255.255.255.255
+
+Class D and Class E --> Military and research and development purpose.
+
+2. IPv6 -> Internet Protocol Version 6
+======================================
+	It is 128 bit long address. It is composed of hexa decimal values. Last 32 bit of IPv6 addresses are taken from MAC Address.
+	0000:0000:0000:0000:0000:0000:0000:0000
+	FFFF:FFFF:FFFF:FFFF:FFFF:FFFF:FFFF:FFFF
+	Total number of IPv6 --> 2^128
+		0000:fe80:0000:f68c:50ff:fe5f:9718
+								   5f:97:18
+		f4:8c:50:5f:97:18
+
+Types of IP Address
+===================
+1. Public IP Address | Global IP Address
+		IP Address which is provided by the ISP or that of ISP
+		Google.com --> myipaddress --> 125.63.71.34
+					   ipcow.com ----> 125.63.71.34
+					   ipchicken.com > 125.63.71.34
+
+	User-Agent Information
+	======================
+			Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:60.0) Gecko/20100101 Firefox/60.0
+			Hostname = 125.63.71.34.reverse.spectranet.in
+			Device = X11
+			Operating System = Ubuntu
+			Browser Name = Firefox
+			Browser Version = 60.0
+			Is Mobile Device = False
+			Is Beta = False
+			Screen Resolution = 1366 x 768
+
+2. Private IP Address | Local IP Address
+		This is the IP Address which is provided to end devices which are connected in the network, by the router.
+			MS-OS --> cmd ---> ipconfig
+			Linux/Unix --> Terminal --> ifconfig
+				ifconfig --> interface Configuration
+
+IP Subnetting
+=============
+	Division of IP Address into further sub network so that IP wastage is reduced.
+
+
+NAT --> Network Address Translation
+===================================
+It is a service used just above the router so that my Private IP Address can be converted and mapped into Public IP Address and Public IP Address into Private IP Address.
+
+DHCP
+====
+Dynamic Host Configuration Protocol
+-----------------------------------
+	It is the protocol which works in the router. It is responsible for allocating an IP Address to the connected device in the network.
+
+	IP-Pool
+	=======
+		It is collection of IP Address which can be provided to the devices.
+	DHCP Server
+	===========
+		It is the server which provides IP Address to the devices from the IP Pool.
+
+	DHCP allocates the IP Address on the basis of lease time period.
+
+	MS-OS
+	=====
+	cmd ---> ipconfig /release
+			 ipconfig /renew
+
+-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-
+
+
+Networking II
+======================
+Types Of Network
+----------------
+1. PAN --> Personal Area Network --> Bluetooth, ShareIt --> 1-10m
+2. LAN --> Local Area Network --> WiFi, whole Campus --> 10m-5Km
+3. MAN --> MetroP. Area Network --> Whole City --> 5km-50km
+4. WAN --> Wide Area Network --> Internet --> 
+
+LAN --> Collection of PAN
+MAN --> Collection of LAN
+WAN --> Collection Of MAN
+
+1. Intranet --> Intra -> Inside | Net -> Network
+			Network Infrastructure which works inside a campus, cannot be accessed by people outside the campus
+2. Internet --> Connection of two or more networks
+
+Ports
+=====
+	Are specific gateways by which a device can use or access the external service. There are two different types of ports:
+		1. Physical Ports
+		2. Virtual Ports
+
+1. Physical Ports
+=================
+	These are the ports which we can see, touch and can take the services. Which are present in the device and are used for connecting some different hardware.
+		USB
+		Audio Jack
+		HDMI
+		VGA
+		Charging Port
+
+2. Virtual Ports
+================
+	These are the ports via which i can use the network services. They are not tangible, but can use the services. External and specific services.
+	There are 65,555+ virtual ports.
+	They are also of three types:
+	1. Well-Known | Pre-Defined Ports
+	2. Registered Ports
+	3. Dynamic Ports
+
+	1. Well-Known | Pre-Defined Ports
+	=================================
+		These are the ports which are defined by internet community for running and hosting some specific services. The services over these ports cannot be changed.
+			21 --> FTP
+			22 --> SSH
+			23 --> Telnet
+			80 --> HTTP
+			443 --> HTTPS
+		These services can also run on other ports, but on these ports only these service will run.
+		Ports under 1-1024 are categorised under this kind of port.
+
+	2. Registered Ports
+	===================
+		These are the ports which are registered by certain organisations for running their specific services.
+		Oracle ----> Database ---> MySQL --> 3306
+		Apple -----> iPhone -----> iTunes -> 3689
+		Black Berry Enterprise ---> server > 3101
+
+	3. Dynamic Ports
+	================
+		These are the ports which are neither Pre-Defined nor registered ports, and can be used by any computer user locally for their own purpose.
+			1337 --> LEET port | Hacker's Port
+
+Our computer is a dumb device. We humans can remember the names very easily but computer can only understand a language, that is of numbers. So for computers it is easy to remember the number as compared to the name.
+
+DNS
+===
+Domain Name System|service
+==========================
+	This service is used to map IP address to domain name and helps in fetching the response of the specified request.
+		www.google.com ----> Open front end of google
+		172.217.161.4 -----> Open front end of google
+
+		www.google.co.in --> 172.217.24.227
+www.google.co.in
+	in --> indian domain
+		co --> company domain inside india
+			google ----> domain whose name is google
+				root ---> www|mail|drive|calander
+
+Proxy 
+=====
+	These are the dummy servers, which are used for hiding and masking my IP Address. Public IP Address.
+		kproxy.com
+
+		ipcow.com ---> 125.63.71.34 ---> Original IP Address (Public)
+		kproxy.com --> ipcow.com ---> 192.95.12.100 -> Proxy wala IP Address
+
+VPN --> Virtual Private Network
+===============================
+	They just work like proxy servers but they are much more advance then the proxy servers in the following ways:
+		1. They are used to maintain the anonymity, hiding and masking IP Address
+		2. They provide the encryption of data.
+		3. They provide the tunneling.
+			Secret Passage
+			Connecting to the internal network of an organisation
+
+Services
+========
+	1. Online Based Service ----> kproxy.com
+	2. Extension Based Service -> anonymox
+	3. Standalone Service ------> Proper softwares or hardwares which provide us these services.
+		psiphon3
+		UltraSurf
+		Proxpn
+		HotSpot Shield
+		openVPN
+	
+OSI Model
+=========
+Open System Interconnection Model
+---------------------------------
+It is a model which was used for commincation in the network. But due to some obvious reasons, this model was made an ideal model. This model is not used at all. 
+OSI is 7 layer approach model
+1. Physical Layer
+2. Data Link Layer
+3. Network Layer
+4. Transport Layer
+5. Session Layer
+6. Presentation Layer
+7. Application Layer
+
+TCP\IP Model
+============
+	It is 4 layer based model. Which is similar to OSI model. Layers are again independent of each other but it's working is very very fast as compare to that of OSI model.
+
+Web Technology Basics
+=====================
+1. Domain Name
+2. Hosting Space
+3. Server
+4. DataBase
+5. Technology
+	Client Side
+	Server Side
+
+Watch: 1. https://www.youtube.com/watch?v=lBA8GAvtpRY
+       2. https://www.youtube.com/watch?v=LVV_93mBfSU

@@ -1,0 +1,138 @@
+Privacy:
+
+Proxy: A proxy server is basically another computer which serves as a hub through which internet requests are processed.
+ A proxy server has multiple purposes.
+Eg: Hidemyass.com, proxy-list.org, kproxy.com, Extension: Anonymox
+
+VPN: A Virtual Private Network extends across a public or shared network and acts like a tunnel so that data can be exchanged securely & anonymously across the internet as if you were connected directly to a private network.
+Once you connect through a VPN, all your traffic becomes encrypted and your IP address gets replaced with an address of the VPN server.
+Eg: PIA, VPNgates.com, OpenVPN, Psiphon.
+*These tools can usually be used for censorship bypass.
+“PRIVACY IS A MYTH”
+*Data collection programs by NSA, Ed Snowden & its programs. (eg. PRISM)
+*Google’s Data Collection.
+*Capabilities of Nation-States, Surveillance.
+
+IMPORTANCE OF PRIVACY:
+Privacy is a fundamental human right. Privacy is essential to autonomy and the protection of human dignity, serving as the foundation upon which many other human rights are built. It enables us to create boundaries and protect ourselves from unwanted interferences in our lives, allowing us to negotiate who we are and how we want to interact with the world around us. Privacy protects us from arbitrary and unjustified use of power by states, companies and other actors. It lets us regulate what can be known about us and done to us, while protecting us from others who may wish to exert control.
+Over 130 countries have constitutional statements regarding the protection of privacy. An important element is the right to protection of personal data. Over 100 countries now have some form of data protection law.
+
+OPERATIONAL SECURITY:
+Operational Security refers to the habits and behaviours you perform to enforce good security, privacy and anonymity intact.
+PRIVACY: It is nobody seeing what you do, but personally knowing who you are. It is about content, maintaining confidentiality and keeping secrets.
+ANONYMITY: Non-attribution to your actions to be nameless and auto-faceless.
+PSEUDONYMITY: When you wish to retain a reputation against an identity. An alias, a cover, a fake identity.
+
+IDENTITY STRATEGIES:
+1.OPEN: Real identity, being transparent and authentic. Need security but not for privacy or anonymity.
+2.AVOIDANCE: Avoiding using certain social media, posting or even not viewing certain content. Hacking no online presence perhaps apart from an email.
+3.AUDIENCE: Separate audiences for different aliases and content, e.g. Keeping a personal and professional network separate. This method is still risky, as the information is still out there.
+4.CONTENT: Only posting, viewing and creating carefully considered content. Still risky, because of unintended consequences.
+5.COMPARTMENTALISATION: Using one or more contextually separate identities from your real identity. For anonymity and pseudonymity online, compartmentalisation is required.
+6.CUSTOM: Best strategy will be this one for most people.
+
+AUDIENCE
+AVOIDANCE
+
+COMPARTMENTALISATION
+CONTEXT
+
+
+This is a mix of all strategies, according to the situation.
+“THE INTERNET DOES NOT FORGET”
+*Our online data can be used against us in the future depending on what our actions have been, especially by nation-states, which are scooping up all data.
+
+ESTABLISHING COVER:
+Use separate security domains per identity.
+Separate browsers: browsers fingerprints can be traced.
+Establish a Cover: Like Keiser Soze in the “The Usual Suspects”.
+Visit www.fakenamegenerator.com : gives enough details for an alias.
+Always have enough details about your character, who does not have any similarities with you, since even the weather in your location can be used to find you.
+*GOOGLE ALERTS: google.com/alerts
+*Book: The Baby Harvest by Chris Rock.
+IDENTITY CROSS CONTAMINATION:
+Do not have attributes which are common with your real identity.
+Spend time searching for cross contamination between your identities. Start by googling, and then use all the other search engines. Do these using anonymity services too.
+Deleting yourself from the internet: www.cnet.com/howto/remove-delete-yourself-from
+Google: Removal policies.
+Falsify undeletable accounts
+Check in archive.org
+Right to be forgotten.
+
+THE 10 RULES OF OPSEC:
+                        Source: grugq.github.io (check this)
+Keep your mouth shut: don’t tell anyone about using TOR, operational details, Linux, Tails, nested VPNs, iPhones etc.
+Trust no one: do not even trust co-conspirators. If possible, operate alone.
+Never contaminate identities:
+Do not even have same password for different identities.
+Do not open the different identities at the same time. Patience is the key.
+Don’t go visiting to one identity using the other identity.
+Location is an important factor: keeps device separate.
+Be Uninteresting: Fly under the radar
+Use technologies like Steganography
+Hide your knowledge
+Avoid high risk areas
+Don’t attract attention of the well-resourced adversary.
+Don’t get caught in unrelated things.
+Be Paranoid now:
+Be aware at all times.
+Use fail safe technologies
+Battery out of phones, laptop, camera
+Use whole dish encryption
+Don’t discuss security privacy. 
+Know your limitations.
+Minimise information
+No logs = no crime.
+No need of browser history
+If it’s not needed, don’t keep it
+Minimise what people can find, even if encrypted
+Don’t send unencrypted text messages, even non-sensitive ones.
+Don’t leave money trails.
+Be Professional:
+Be serious
+Educate yourself in these
+Employ anti-profiling:
+Avoid revealing personal information or stories about yourself.
+These can be used for profiling.
+Including private messages, chat discussions, voice calls, encrypted messages, everywhere.
+No revealing of gender, birth place, height, age, favourite sport, car you drive, tattoos, nickname etc.
+No location references 
+No habits, regular routines
+Use misinformation
+Use alternative spellings [z(us), s(uk)]
+Change metadata of documents etc.
+Protect your assets.
+
+AUTHORSHIP RECOGNITION & EVASION METHODS:
+Your writing style, your grammar, spellings etc can be used to identify you with more than 80% accuracy from using only about 5000 words.
+*Stylometry and online underground markets.
+*Anonymouth: a tool to anonymise written documents.
+*English is easier to analyse.
+*JSAN: a writing style analyse and anonymisation framework.
+Jstylo-Anonymouth
+SIGNATURE
+reLANG: Jason.sx/LANG
+*Mitigations to automated recognitions:
+Use authorship evasion tools
+Use multiple sub-aliases
+The less you write the better
+Post text from sources other than yourself
+Impersonate other users’ styles
+Include extra data in posts
+If everyone uses L33t sp3ak, this makes identification harder.
+THE KNOCK:
+Plan for getting arrested, interrogated, even tortured, in case you are living in such a regime.
+Must have plans & defences in advance.
+Kill switch for laptops.
+Escape rooms.
+Remain calm and controlled, but act as if confused, scared, 
+Have money backups.
+Don’t fall for interrogation techniques, no one is gonna help you (the interrogators)
+Book: Lie Behind the Lie Detector (Polygraph tests)
+*www.antipolygraph.org
+
+TAILS: The operating system for privacy.
+ *Do not put full trust into any particular security solution. Even TAILS+TOR is not completely secure.
+
+TOR: The onion Router
+  *How to use Tails & precautions that need to be token.

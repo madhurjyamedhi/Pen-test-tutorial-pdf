@@ -1,0 +1,109 @@
+------------------------------------
+Information
+-----------
+	Collection of data is known as Information. Information makes a complete meaning.
+
+Data
+----
+	It is raw facts and figures. Data can be anything.
+									Text
+									Number
+									Image
+									Audio
+									Video
+	Data itself, a single piece of data never makes a sense.
+
+Security
+--------
+	To protect and secure from leakage and breaches.
+
+Information
+===========
+	Personal Information
+	Sensitive Information
+	Financial Information
+	Economical Information
+	Banking Information
+
+Hackers
+=======
+	The person who have the highest amount of knowledge in the field of computer and technology. 
+		How a system is working.
+		How processes are working.
+		How my new technologies are working.
+		Client side and server side process.
+
+Hacking
+=======
+	Gaining someone's data with or without their authorisation. Legally or illegally.
+
+Types of Hackers
+================
+1. White Hat Hacker
+	They are good people, who work for the welfare of the organisation. They work for the security only.
+		
+2. Black Hat Hacker
+	They are really bad people, which brings chaos and destruction to the cyber society. They have only one thing in mind.... Money.
+		Mitnick
+		New Lizard Squad
+3. Grey Hat Hacker
+	They are the combination of both. They hack into the stuff and uncertain the dirty things. They have only one focus ---> Welfare of the society and the people.
+		Anonymous
+		The Legions 
+		Hacktivism
+		Julian Assange --> The Wikileaks
+		Edward Snowden
+
+Script Kiddies
+-------------
+	Copy + Paste --> Who just uses the codes and techniques that are created by others without knowing how things are working.
+N00bz
+-----
+	They are new babies who are trying to learn something new in the world of cyber.
+Crackers
+--------
+	They are not the hackers but they are very very good at cracking the passwords. File passwords, Folder password, OS password, Email password.
+
+Why Do People Hack?
+-------------------
+	Security
+	Money
+	Revenge
+	Curiosity|knowledge
+	Fame
+		Zoo Zoo Hacker
+		Rafi Hacker
+
+Cyber Crimes And Laws
+=====================
+IT Act 2000 and IT Act 2008
+28 Types of cyber crime, but all of them are categorised into these few group:
+	--> Hacking
+	--> Identity Theft
+	--> Insult, Online Defamation
+	--> Harassment
+	--> Cyber Terrorism
+
+Section 43: 
+	Penalty and compensation for damage to computer and computer system
+Section 65: 
+	Tampering with Computer Source Documents
+Section 66:
+	Computer Related Offences
+Section 67:
+	Punishment for publishing or transmitting obsene material in electronic form
+Section 71:
+	Penalty For Misrepresentation
+Section 72:
+	Breach of confidentiality and privacy
+Section 73:
+	Penalty for publishing electronic signature certificate false in certain particular | Signature Forgery
+
+IPR
+
+Salami Attack
+Data Diddling
+Cyber Stalking
+Internet Time Theft
+
+TheHackerNews

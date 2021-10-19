@@ -1,0 +1,132 @@
+
+Information Gathering and Digital Footprinting
+==============================================
+Phases of hacking
+-----------------
+	These phases are must to follow in order to perform any kind of hacking.
+	1. Information Gathering
+	2. Scanning
+	3. Gaining Access
+	4. Maintaining Access
+	5. Covering Traces
+
+Information Gathering
+---------------------
+	To collect as much Information as possible about the target.
+
+
+				Information Gathering
+				---------------------
+					|
+			-------------------------
+			|			|
+		Target specific 	Network Specific
+			|			|
+	---------------------		-------------------------
+	|		    |		|			| 				
+Web Site 		Human as 	Basic Info. 	Advance Info.
+as Target 		target 		Gathering 		Gathering
+
+
+Information Gathering is divided into further
+		1. Network Specific
+		2. Target Specific
+
+1. Network Specific
+===================
+	To collect the information about the network
+			Number Of people Connected
+			IP Address allocated to the connected devices
+			MAC Address
+			Name Of the Vendor
+			If possible --> Access of the shared folder
+		1. Advanced IP Scanner
+		2. Angry IP Scanner
+		3. Soft Perfect Network Scanner
+				https://www.softperfect.com/products/networkscanner/
+
+		NMAP --> Network Mapping tool
+
+2. Target Specific
+==================
+	i. Web site or web application
+	ii. Human Specific
+
+Web site or web Application
+===========================
+	IP Address
+		Ping 
+			> 65.52.169.46
+	Server Information
+		Dedicated or shared
+		https://www.yougetsignal.com
+	Database Information
+	MX and NX Records
+	Name of the registrar
+	Technologies 
+	White list and Black List
+			|--> robots.txt
+
+		https://whois.net/
+		https://www.yougetsignal.com
+		https://whois.icann.org/en
+		https://mxtoolbox.com/
+		wappalyzer --> extension --> helps me in gathering information about the technologies used behind a web site or web application.
+		Online Nmap
+			https://pentest-tools.com/network-vulnerability-scanning/tcp-port-scanner-online-nmap
+
+
+
+
+Human Specific
+==============
+	Social Network
+	Social Networking Websites
+		Linkedin
+		Twitter
+		Facebook
+	Dating Websites
+	Matrimonial Websites
+	Job Portals
+	Fake Surveys
+	Spy Services
+
+				ravisraaman.marines
+
+Tools
+=====
+	Maltego
+		It is corporate level information gathering tool. It helps in gathering information about each and every aspect. 
+		Community Edition ---> Free
+			All transformations do not work in free edition.
+		https://www.paterva.com/web7/downloads.php
+
+OS Login Bypass
+===============
+When you log into the OS, then while starting the windows, you will be asked for password.
+1. Online Method
+2. Offline Method
+
+1. Online Method
+================
+	When you need to crack or bypass the password, change the OS login password when the system is up, and you do not know the current password. It only works in windows ultimate or professional version.
+	1. Right click on "My Computers"
+	2. Click on "Manage"
+	3. Click on "Local Users and Groups", in the left pane
+	4. Click on "Users"
+	5. Choose the user, for whom you want to change the password.
+	6. Right Click
+	7. Set Password
+
+2. Offline Method
+=================
+	This is the condition, when the device is in shut down mode and we cannot open the group editing policies.
+	SAM --> Security Account Manager
+	C:\Windows\System32\Config\SAM
+		Hiren Boot CD
+		Kon Boot CD
+	These are live bootable OS. We use tools like Rufus, to make the media bootable.
+	BIOS --> Basic Input Output System
+	Live OS ---> It replaces the BIOS of the Computer or the device from the one which is in the bootable media.
+
+-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-

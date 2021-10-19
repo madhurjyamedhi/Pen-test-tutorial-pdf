@@ -1,0 +1,217 @@
+Domain Name
+We all know about DNS or Domain Name System and the purpose to have a domain name is that one can never remember all the ip addresses of the website that we want to access so that is why we have DNS
+
+
+A Domain Name is the website name  
+like google.com
+	 apple.com
+	 Amazon.com
+	 Lucideus.com
+
+So from where can we buy a domain 
+we can buy domain from a domain registrar website like 
+Paid->
+godaddy
+bigrock
+hostgator
+Free->
+000webhost.com
+
+Hosting Space
+
+SO in layman terms a hosting space can be defined as accomodation or living space for a website 
+
+Hosting makes your site available to users on the internet 
+ 
+ example (Disk Space(storage) for the website code, Bandwidth, databases)
+
+
+Server---> What is a server?
+
+A server can be defined as a dedicated software or hardware which runs other programs or server side applications and serves its intended content to world wide web.
+(handles request -response architechture*)
+
+WIndows Server--> 
+IIS server  
+
+Linux Server
+Apache | Tomcat
+
+Hosting is provided by Server (Application of the server)
+
+Database
+It is known as the backbone of the website or web application
+It stores the data in a tabular organised manner
+-> In the form of rows and columns 
+Database->Tables-->Columns->Rows
+
+Database is generally managed by a DBMS--> What is a DBMS
+Database Management system 
+It is a system for creating and managing databases -->it provides users with a systematic way to --> create, retrieve, update data.  
+eg 
+Mysql
+MSsql
+Both are dbms which SQL language --> Structure Querry Language
+
+we also have Mongo DB which is a no sql database
+
+
+What is a Website ? 
+A series or collection of web pages that may be static or dynamic
+
+A WebApplication is complex application program that is stored on a remote webserver and its services are delivered over the internet through browser
+---->>>Example--->Google Drive,Docs,Canva.com
+
+Web Development Technologies
+
+A website runs on a technology stack 
+It has front end 
+It has backend 
+
+Front End ---> Which users can see 
+html+Css+Js
+
+Backend ---> which helps to application communicate with database and server process inputs and gives output
+
+php(Larvel),Python(Django) 
+now what is larvel or Django 
+These are know as frameworks which help to support the development of the application or services 
+
+In developments Side of things there three types 
+Front End
+Back End
+Full stack
+
+Example of a Technology Stack 
+
+->MEAN Stack
+M-> Mongo DB 
+E-> Express Js
+A-> ANgular JS
+N-> Node Js
+
+->MERN Stack 
+M-> Mongo DB
+E->Express
+R->React JS
+N-> node Js
+
+ asp.net --->MSOS
+ ________________
+ Local Hosting Servers
+ Windows Based Server
+1. WAMPP
+W- Windows
+A- Apache
+M- Mysql 
+P- php
+P- perl
+
+
+ Linux Based Server
+2.LAMPP
+L- Linux
+A- Apache
+M- Mysql
+P- Perl
+P- Php
+
+Cross Platform
+3. XAMPP
+X- Cross Platform
+A- Apache
+M- Mysql
+P- Perl
+p- PHP
+
+ Installing XAMPP
+
+there are 3 ways to access
+1. localhost
+2. 127.0.0.1
+3. Ip address
+
+_____________
+Most common Misconception
+1. If i have a firewall i am secure
+2. if i have a good ips and ids i am secure
+3. if i have SSl certificate i am Secure
+
+
+
+_______________________
+html
+Hyper text Markup language
+tags
+
+<html>
+<head>
+<title>learn get/post forms</title>
+</head>
+<body>
+<form method="Get"> 
+<h4>Username</h4><input type="text" name="uname"><br>
+<h4>Password</h4><input type="password" name="pass"><br>
+<input type="Submit">
+</form>
+</body
+</html>
+
+Methods
+
+get 
+Post
+Task : study ABout all the http methods 
+___________
+PHP---> Hyper text preprocessor/ Personal home page
+
+basics
+<?php---> marks the start of the php code
+
+?>------>Marks the end of the code
+
+$ ---> used to make a variable 
+eg $a is available
+
+$_get
+$_post
+calling http methods 
+
+_____________________
+
+
+adding two numbers
+<html>  
+<body>  
+<form method="post">  
+Enter First Number:  
+<input type="number" name="number1" /><br><br>  
+Enter Second Number:  
+<input type="number" name="number2" /><br><br>  
+<input  type="submit" name="submit" value="Add">  
+</form>  
+<?php  
+    if(isset($_POST['submit']))  
+    {  
+        $number1 = $_POST['number1'];  
+        $number2 = $_POST['number2'];  
+        $sum =  $number1+$number2;    
+         
+echo "The sum of $number1 and $number2 is: ".$sum;   
+}  
+?>  
+</body>  
+</html>  
+
+
+
+
+isset() is a function used to check whether a var is set or not
+
+
+
+
+
+
+html
+PHP
